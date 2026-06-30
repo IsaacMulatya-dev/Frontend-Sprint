@@ -1,5 +1,5 @@
 body {
-    background-color:lightgray;
+    background-color:white;
     color:black;    
     font-family:sans-serif;
     padding: 30px;
@@ -7,7 +7,7 @@ body {
 
 h1{
     color: darkblue;
-    background-color: lightblue;
+    background-color:whitesmoke;
     padding: 15px;
     margin-bottom: 25px;
 }
