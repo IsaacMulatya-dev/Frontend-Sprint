@@ -37,3 +37,23 @@ a {
     color: white;
     font-weight: bold;
 }
+@media (max-width: 600px) {
+    body {
+        padding: 15px;
+    }
+    .navbar {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+}
+.navbar a {
+    color: white;
+    text-decoration: none;
+    transition: background-color 0.3s ease
+    padding: 8px 16px;
+    border-radius: 4px;
+}
+.navbar a:hover {
+    background-color: royalblue;
+}
