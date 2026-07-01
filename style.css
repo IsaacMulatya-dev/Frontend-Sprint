@@ -1,42 +1,77 @@
-body {
-    background-color:white;
-    color:black;    
-    font-family:sans-serif;
-    padding: 30px;
-    transition: background-color 0.5s ease, color 0.5s ease;
+:root {
+    --bg-color: #ffffff;
+    --text-color: #0f172a;
+    --surface-card: #f8fafc;
+    --accent-color: #1e40af;
+    --transition-speed: 0.4s;
 }
-h1{
-    color: darkblue;
-    background-color:whitesmoke;
+
+[data-theme="dark"] {
+    --bg-color: #0f172a;
+    --text-color: #f1f5f9;
+    --surface-card: #1e293b;
+    --accent-color: #bef264;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: sans-serif;
+    padding: 30px;
+    transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
+}
+
+h1 {
+    color: var(--accent-color);
+    background-color: var(--surface-card);
     padding: 15px;
     margin-bottom: 25px;
+    transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
 }
 
 a {
-    color: purple;
+    color: var(--accent-color);
     font-weight: bold;
+    transition: color var(--transition-speed) ease;
 }
 
 .goals-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: white;
+    background-color: var(--surface-card);
     padding: 20px;
     border-radius: 8px;
+    transition: background-color var(--transition-speed) ease;
 }
+
 .navbar {
     display: flex;
     flex-direction: row;
-    justify-content:space-between;
-    background-color: darkblue;
+    justify-content: space-between;
+    background-color: var(--accent-color);
     padding: 15px;
+    transition: background-color var(--transition-speed) ease;
 }
 
 .navbar .logo {
-    color: white;
+    color: var(--bg-color);
     font-weight: bold;
+    transition: color var(--transition-speed) ease;
 }
+
+.navbar a {
+    color: var(--bg-color);
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    padding: 8px 16px;
+    border-radius: 4px;
+}
+
+.navbar a:hover {
+    background-color: royalblue;
+}
+
 @media (max-width: 600px) {
     body {
         padding: 15px;
@@ -46,14 +81,4 @@ a {
         gap: 10px;
         text-align: center;
     }
-}
-.navbar a {
-    color: white;
-    text-decoration: none;
-    transition: background-color 0.3s ease
-    padding: 8px 16px;
-    border-radius: 4px;
-}
-.navbar a:hover {
-    background-color: royalblue;
 }

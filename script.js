@@ -11,16 +11,17 @@ mainHeading.addEventListener("click", function() {
 });
 
 const themeButton = document.querySelector("#mode-btn");
+
 themeButton.addEventListener("click", function() {
-    if (document.body.style.backgroundColor === "white" || document.body.style.backgroundColor === "") {
-        document.body.style.backgroundColor = "black";
-        document.body.style.color = "white";
-        themeButton.innerHTML = "Light Mode";
-    } else {
+
+    const currentTheme = document.documentElement.getAttribute("data-theme");
     
-        document.body.style.backgroundColor = "white";
-        document.body.style.color = "black";
+    if (currentTheme === "dark") {
+        document.documentElement.setAttribute("data-theme", "light");
         themeButton.innerHTML = "Dark Mode";
+    } else {
+        document.documentElement.setAttribute("data-theme", "dark");
+        themeButton.innerHTML = "Light Mode";
     }
     
 });
