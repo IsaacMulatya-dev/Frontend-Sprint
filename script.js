@@ -24,31 +24,32 @@ themeButton.addEventListener("click", function() {
     }
     
 });
-const goalsArray = [
+const savedGoals = localStorage.getItem("myPersistentGoals");
+const goalsArray = savedGoals ? JSON.parse(savedGoals) : [
     "Master HTML & CSS layouts perfectly",
     "Learn how to use JavaScript for interactivity",
-    "Deploy a live portfolio site to the web",
-    "Understand professional Git workflows"
+    "Deploy a live portfolio site to the web"
 ];
 const goalsList = document.querySelector("#dynamic-goals-list");
 const goalInput = document.querySelector("#goal-input");
 const addButton = document.querySelector("#add-btn");
 function renderGoals() {
     goalsList.innerHTML = "";
-    goalsArray.forEach(function(goal) {
-        const listItem = document.createElement("li");
-        listItem.textContent = goal;
-        goalsList.appendChild(listItem);
+    goalsArray.forEach(function(goalText) {
+        const newListItem = document.createElement("li");
+        newListItem.innerHTML = goalText;
+        goalsList.appendChild(newListItem);
     });
 }
-    renderGoals();
+renderGoals();
 addButton.addEventListener("click", function() {
     const userValue = goalInput.value;
     if (userValue !== "") {
         goalsArray.push(userValue);
+        localStorage.setItem("myPersistentGoals", JSON.stringify(goalsArray));
         renderGoals();
         goalInput.value = "";
-    }else {
+    } else {
         alert("Please type a goal first!");
     }
 });
