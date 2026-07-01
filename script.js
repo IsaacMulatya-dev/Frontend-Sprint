@@ -24,3 +24,16 @@ themeButton.addEventListener("click", function() {
     }
     
 });
+const goalsArray = [
+    "Master HTML & CSS layouts perfectly",
+    "Learn how to use JavaScript for interactivity",
+    "Deploy a live portfolio site to the web",
+    "Understand professional Git workflows"
+];
+console.log(goalsArray);
+const goalsList = document.querySelector("#dynamic-goals-list");
+goalsArray.forEach(function(goalText) {
+    const listItem = document.createElement("li");
+    listItem.textContent = goalText;
+    goalsList.appendChild(listItem);
+});
