@@ -30,10 +30,25 @@ const goalsArray = [
     "Deploy a live portfolio site to the web",
     "Understand professional Git workflows"
 ];
-console.log(goalsArray);
 const goalsList = document.querySelector("#dynamic-goals-list");
-goalsArray.forEach(function(goalText) {
-    const listItem = document.createElement("li");
-    listItem.textContent = goalText;
-    goalsList.appendChild(listItem);
+const goalInput = document.querySelector("#goal-input");
+const addButton = document.querySelector("#add-btn");
+function renderGoals() {
+    goalsList.innerHTML = "";
+    goalsArray.forEach(function(goal) {
+        const listItem = document.createElement("li");
+        listItem.textContent = goal;
+        goalsList.appendChild(listItem);
+    });
+}
+    renderGoals();
+addButton.addEventListener("click", function() {
+    const userValue = goalInput.value;
+    if (userValue !== "") {
+        goalsArray.push(userValue);
+        renderGoals();
+        goalInput.value = "";
+    }else {
+        alert("Please type a goal first!");
+    }
 });
