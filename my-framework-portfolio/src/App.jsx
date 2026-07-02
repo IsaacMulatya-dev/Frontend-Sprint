@@ -1,19 +1,9 @@
 import React, { useState } from 'react';
 import Navbar from './components/Navbar';
-import GoalItem from './components/GoalItem';
-
-<ul style={{ marginTop: '20px', paddingLeft: '20px' }}>
-  <GoalItem text="Master HTML & CSS layouts perfectly" />
-  <GoalItem text="Learn how to use JavaScript for interactivity" />
-  <GoalItem text="Deploy a live portfolio site to the web" />
-</ul>
+import GoalsContainer from './components/GoalsContainer';
 
 function App() {
   const [clicked, setClicked] = useState(false);
-
-  function handleButtonClick() {
-    setClicked(true);
-  }
 
   return (
     <div>
@@ -26,11 +16,14 @@ function App() {
         <p>Migrating my codebase into a modular component architecture!</p>
         
         <button 
-          onClick={handleButtonClick}
-          style={{ padding: '10px 20px', cursor: 'pointer', borderRadius: '4px' }}
+          onClick={() => setClicked(true)}
+          style={{ padding: '10px 20px', cursor: 'pointer', borderRadius: '4px', marginBottom: '10px' }}
         >
           Click Me
         </button>
+
+        <GoalsContainer />
+
       </main>
     </div>
   );
