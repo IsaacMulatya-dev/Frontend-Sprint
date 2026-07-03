@@ -1,19 +1,26 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import GoalItem from './GoalItem';
 
 function GoalsContainer() {
-  const [goalsArray, setGoalsArray] = useState([
-    "Master HTML & CSS layouts perfectly",
-    "Learn how to use JavaScript for interactivity",
-    "Deploy a live portfolio site to the web"
-  ]);
+
+  const [goalsArray, setGoalsArray] = useState(() => {
+    const savedGoals = localStorage.getItem('userTechGoals');
+    return savedGoals ? JSON.parse(savedGoals) : [
+      "Master HTML & CSS layouts perfectly",
+      "Learn how to use JavaScript for interactivity",
+      "Deploy a live portfolio site to the web"
+    ];
+  });
 
   const [inputValue, setInputValue] = useState("");
 
 
+  useEffect(() => {
+    localStorage.setItem('userTechGoals', JSON.stringify(goalsArray));
+  }, [goalsArray]);
+
   function handleAddGoal() {
     if (inputValue.trim() !== "") {
-
       setGoalsArray([...goalsArray, inputValue]);
       setInputValue("");
     }
@@ -41,7 +48,6 @@ function GoalsContainer() {
 
       <ul style={{ paddingLeft: '20px' }}>
         {goalsArray.map((goal, index) => (
-        
           <GoalItem key={index} text={goal} />
         ))}
       </ul>
