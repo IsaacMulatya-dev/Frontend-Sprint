@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import GoalsContainer from './components/GoalsContainer';
+import QuoteBox from './components/QuoteBox';
 
 function App() {
   const [clicked, setClicked] = useState(false);
@@ -33,6 +34,12 @@ function App() {
       <Navbar theme={theme} onToggleTheme={toggleTheme} />
       
       <main style={{ marginTop: '20px' }}>
+        <main style={{ marginTop: '20px' }}>
+  {/* ... existing code ... */}
+  <QuoteBox />
+  <GoalsContainer theme={theme} />
+</main>
+
         <h1 style={{ color: clicked ? '#dc2626' : (theme === 'dark' ? '#a3e635' : '#1e40af') }}>
           {clicked ? 'You Clicked Me!' : 'Click the button below'}
         </h1>
