@@ -35,7 +35,6 @@ function App() {
       
       <main style={{ marginTop: '20px' }}>
         <main style={{ marginTop: '20px' }}>
-  {/* ... existing code ... */}
   <QuoteBox />
   <GoalsContainer theme={theme} />
 </main>

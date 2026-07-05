@@ -6,7 +6,6 @@ function QuoteBox() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Make a GET request to a public quotes API
     fetch('https://dummyjson.com/quotes/random')
       .then((response) => {
         if (!response.ok) {
@@ -25,7 +24,7 @@ function QuoteBox() {
         setLoading(false);
         console.error("Error fetching data: ", error);
       });
-  }, []); // Empty dependency array means this effect runs exactly once when the page loads!
+  }, []);
 
   return (
     <div style={{
